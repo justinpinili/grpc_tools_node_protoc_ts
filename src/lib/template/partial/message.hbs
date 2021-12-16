@@ -3,11 +3,11 @@
 {{{indent}}}export class {{{message.messageName}}} extends jspb.Message { {{!-- type class start --}}
 {{#each message.fields}}{{!-- fields start --}}
     {{~#if this.isMapField~}}{{!-- map spec start --}}
-{{{../indent}}}    get{{{this.fieldName}}}(): jspb.Map<{{{this.mapFieldInfo.keyTypeName}}}, {{{this.mapFieldInfo.valueTypeName}}}>;
-{{{../indent}}}    clear{{{this.fieldName}}}(): void;
+{{{../indent}}}    get{{{this.camelUpperName}}}(): jspb.Map<{{{this.mapFieldInfo.keyTypeName}}}, {{{this.mapFieldInfo.valueTypeName}}}>;
+{{{../indent}}}    clear{{{this.camelUpperName}}}(): void;
     {{~else~}}{{!-- map spec else --}}
         {{~#if this.hasFieldPresence~}}{{!-- hasFieldPresence start --}}
-{{{../indent}}}    has{{{formatName this.fieldName}}}(): boolean;
+{{{../indent}}}    has{{{formatName this.camelUpperName}}}(): boolean;
             {{#is this.hasClearMethodCreated false}}
 {{{../indent}}}    {{printClearIfNotPresent this}}
             {{/is}}
@@ -17,25 +17,25 @@
 {{{../indent}}}    {{printClearIfNotPresent this}}
             {{/is}}
             {{~#is this.type ../BYTES_TYPE~}}
-{{{../indent}}}    get{{{this.fieldName}}}(): Array<Uint8Array | string>;
-{{{../indent}}}    get{{{this.fieldName}}}_asU8(): Array<Uint8Array>;
-{{{../indent}}}    get{{{this.fieldName}}}_asB64(): Array<string>;
-{{{../indent}}}    set{{{this.fieldName}}}(value: Array<Uint8Array | string>): {{{../message.messageName}}};
+{{{../indent}}}    get{{{this.camelUpperName}}}(): Array<Uint8Array | string>;
+{{{../indent}}}    get{{{this.camelUpperName}}}_asU8(): Array<Uint8Array>;
+{{{../indent}}}    get{{{this.camelUpperName}}}_asB64(): Array<string>;
+{{{../indent}}}    set{{{this.camelUpperName}}}(value: Array<Uint8Array | string>): {{{../message.messageName}}};
 {{{../indent}}}    {{printRepeatedAddMethod this "Uint8Array | string"}}
             {{~else~}}
-{{{../indent}}}    get{{{this.fieldName}}}(): Array<{{{this.exportType}}}>;
-{{{../indent}}}    set{{{this.fieldName}}}(value: Array<{{{this.exportType}}}>): {{{../message.messageName}}};
+{{{../indent}}}    get{{{this.camelUpperName}}}(): Array<{{{this.exportType}}}>;
+{{{../indent}}}    set{{{this.camelUpperName}}}(value: Array<{{{this.exportType}}}>): {{{../message.messageName}}};
 {{{../indent}}}    {{printRepeatedAddMethod this this.exportType}}
             {{~/is~}}
         {{~else~}}{{!-- repeat else --}}
             {{~#is this.type ../BYTES_TYPE~}}
-{{{../indent}}}    get{{{formatName this.fieldName}}}(): Uint8Array | string;
-{{{../indent}}}    get{{{this.fieldName}}}_asU8(): Uint8Array;
-{{{../indent}}}    get{{{this.fieldName}}}_asB64(): string;
-{{{../indent}}}    set{{{formatName this.fieldName}}}(value: Uint8Array | string): {{{../message.messageName}}};
+{{{../indent}}}    get{{{formatName this.camelUpperName}}}(): Uint8Array | string;
+{{{../indent}}}    get{{{this.camelUpperName}}}_asU8(): Uint8Array;
+{{{../indent}}}    get{{{this.camelUpperName}}}_asB64(): string;
+{{{../indent}}}    set{{{formatName this.camelUpperName}}}(value: Uint8Array | string): {{{../message.messageName}}};
             {{~else~}}
-{{{../indent}}}    get{{{formatName this.fieldName}}}(): {{{this.exportType}}}{{#if this.canBeUndefined}} | undefined{{/if}};
-{{{../indent}}}    set{{{formatName this.fieldName}}}(value{{#is this.type ../MESSAGE_TYPE}}?{{/is}}: {{{this.exportType}}}): {{{../message.messageName}}};
+{{{../indent}}}    get{{{formatName this.camelUpperName}}}(): {{{this.exportType}}}{{#if this.canBeUndefined}} | undefined{{/if}};
+{{{../indent}}}    set{{{formatName this.camelUpperName}}}(value{{#is this.type ../MESSAGE_TYPE}}?{{/is}}: {{{this.exportType}}}): {{{../message.messageName}}};
             {{~/is~}}
         {{~/if~}}{{!-- repeat end --}}
     {{~/if~}}{{!-- map spec end --}}

@@ -82,9 +82,8 @@ var MessageFormatter;
                 }
                 existing.push(field);
             }
-            fieldData.fieldName = field.getName();
             fieldData.snakeCaseName = field.getName().toLowerCase();
-            fieldData.camelCaseName = Utility_1.Utility.snakeToCamel(fieldData.snakeCaseName);
+            fieldData.camelCaseName = Utility_1.Utility.snakeToCamel(field.getName());
             fieldData.camelUpperName = Utility_1.Utility.uppercaseFirst(fieldData.camelCaseName);
             // handle reserved keywords in field names like Javascript generator
             // see: https://github.com/google/protobuf/blob/ed4321d1cb33199984118d801956822842771e7e/src/google/protobuf/compiler/js/js_generator.cc#L508-L510
