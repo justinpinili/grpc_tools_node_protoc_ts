@@ -206,7 +206,7 @@ var MessageFormatter;
             if (!fieldData.hasClearMethodCreated) {
                 fieldData.hasClearMethodCreated = true;
                 if (fieldData.isRepeatField) {
-                    return `clear${fieldData.camelUpperName}List(): void;`;
+                    return `clear${fieldData.camelUpperName}(): void;`;
                 }
                 else {
                     return `clear${Utility_1.Utility.formatOccupiedName(fieldData.camelUpperName)}(): void;`;

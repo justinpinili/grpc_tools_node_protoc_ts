@@ -284,7 +284,7 @@ export namespace MessageFormatter {
                 fieldData.hasClearMethodCreated = true;
 
                 if (fieldData.isRepeatField) {
-                    return `clear${fieldData.camelUpperName}List(): void;`;
+                    return `clear${fieldData.camelUpperName}(): void;`;
                 } else {
                     return `clear${Utility.formatOccupiedName(fieldData.camelUpperName)}(): void;`;
                 }
