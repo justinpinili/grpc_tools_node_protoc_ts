@@ -39,6 +39,7 @@ export namespace MessageFormatter {
     } as IMessageType);
 
     export interface IMessageFieldType {
+        fieldName: string;
         snakeCaseName: string;
         camelCaseName: string;
         camelUpperName: string;
@@ -147,7 +148,7 @@ export namespace MessageFormatter {
                 }
                 existing.push(field);
             }
-
+            fieldData.fieldName = field.getName();
             fieldData.snakeCaseName = field.getName().toLowerCase();
             fieldData.camelCaseName = Utility.snakeToCamel(fieldData.snakeCaseName);
             fieldData.camelUpperName = Utility.uppercaseFirst(fieldData.camelCaseName);
