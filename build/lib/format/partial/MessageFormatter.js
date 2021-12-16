@@ -82,6 +82,7 @@ var MessageFormatter;
                 }
                 existing.push(field);
             }
+            fieldData.fieldName = field.getName();
             fieldData.snakeCaseName = field.getName().toLowerCase();
             fieldData.camelCaseName = Utility_1.Utility.snakeToCamel(fieldData.snakeCaseName);
             fieldData.camelUpperName = Utility_1.Utility.uppercaseFirst(fieldData.camelCaseName);
